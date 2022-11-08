@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CRUD Operation</string>
+    <string name="enter_user_name">Enter user Name</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="c_r_u_d">C R U D</string>
+    <string name="already_a_user_login_here">Already a User ? Login Here</string>
+    <string name="login">Login</string>
+    <string name="new_user_register_here">New user ? Register here</string>
+</resources>

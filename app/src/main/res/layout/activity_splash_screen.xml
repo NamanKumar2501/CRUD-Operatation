@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_shade_1"
+    tools:context=".SplashScreenActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/Splash_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/ic_baseline_api_24"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Splash_icon"
+        android:text="@string/c_r_u_d"
+        android:textColor="@color/teal_200"
+        android:layout_centerInParent="true"
+        android:textSize="40sp"/>
+
+</RelativeLayout>
