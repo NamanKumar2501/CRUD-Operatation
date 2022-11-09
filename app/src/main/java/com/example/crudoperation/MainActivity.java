@@ -7,17 +7,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.crudoperation.Adapter.CourseRVAdapter;
 import com.example.crudoperation.Model.CourseRVModal;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements CourseRVAdapter.C
     private ArrayList<CourseRVModal> courseRVModalArrayList;
     private RelativeLayout bottomSheetRL;
     private CourseRVAdapter courseRVAdapter;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements CourseRVAdapter.C
         loadingPB = findViewById(R.id.idPBLoading);
         addFAB = findViewById(R.id.idAddFAV);
         bottomSheetRL = findViewById(R.id.idRLBSheet);
+        mAuth = FirebaseAuth.getInstance();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Courses");
@@ -125,17 +133,59 @@ public class MainActivity extends AppCompatActivity implements CourseRVAdapter.C
         TextView courseDesTV = layout.findViewById(R.id.idTVDescription);
         TextView courseSuitedForTV = layout.findViewById(R.id.idTVSuitedFor);
         TextView coursePriceTV = layout.findViewById(R.id.idTVPrice);
-        TextView courseIV = layout.findViewById(R.id.idIVCourse);
+        ImageView courseIV = layout.findViewById(R.id.idIVCourse);
         TextView editBtn = layout.findViewById(R.id.idBtnEdit);
         TextView viewDetailsBtn = layout.findViewById(R.id.idBtnViewDetails);
-
 
 
         courseNameTV.setText(courseRVModal.getCourseName());
         courseDesTV.setText(courseRVModal.getCourseDescription());
         courseSuitedForTV.setText(courseRVModal.getBestSuitedFor());
         coursePriceTV.setText("Rs. +"+courseRVModal.getCoursePrice());
+
         Picasso.get().load(courseRVModal.getCourseImg()).into((Target) courseIV);
+
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, EditCourseActivity.class);
+                intent.putExtra("course", courseRVModal);
+                startActivity(intent);
+            }
+        });
+
+        viewDetailsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(courseRVModal.getCourseLink()));
+                startActivity(intent);
+            }
+        });
+
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        switch (id){
+            case R.id.idLogOut:
+                Toast.makeText(this, "User Logged Out..", Toast.LENGTH_SHORT).show();
+                mAuth.signOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                this.finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

@@ -55,6 +55,7 @@ public class CourseRVAdapter extends RecyclerView.Adapter<CourseRVAdapter.ViewHo
         });
     }
 
+
     private void setAnimation(View itemView, int position){
         if (position > lastPos){
             Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
