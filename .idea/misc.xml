@@ -7,12 +7,14 @@
         <entry key="..\:/CRUDOperation/app/src/main/res/drawable/ic_baseline_api_24.xml" value="0.1305" />
         <entry key="..\:/CRUDOperation/app/src/main/res/drawable/progress_back.xml" value="0.1305" />
         <entry key="..\:/CRUDOperation/app/src/main/res/drawable/round.xml" value="0.1305" />
-        <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_add_course.xml" value="0.20416666666666666" />
-        <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_edit_course.xml" value="0.19010416666666666" />
+        <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_add_course.xml" value="0.11450381679389313" />
+        <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_edit_course.xml" value="0.1" />
         <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_registration.xml" value="0.1" />
         <entry key="..\:/CRUDOperation/app/src/main/res/layout/activity_splash_screen.xml" value="0.20416666666666666" />
+        <entry key="..\:/CRUDOperation/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.22" />
+        <entry key="..\:/CRUDOperation/app/src/main/res/layout/course_rv_item.xml" value="0.1" />
       </map>
     </option>
   </component>
