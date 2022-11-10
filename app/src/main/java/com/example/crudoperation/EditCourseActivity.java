@@ -111,9 +111,7 @@ public class EditCourseActivity extends AppCompatActivity {
         deleteCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 deleteCourse();
-
             }
         });
 

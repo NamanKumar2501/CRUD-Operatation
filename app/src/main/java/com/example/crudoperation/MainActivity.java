@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements CourseRVAdapter.C
         courseSuitedForTV.setText(courseRVModal.getBestSuitedFor());
         coursePriceTV.setText("Rs. +"+courseRVModal.getCoursePrice());
 
-        Picasso.get().load(courseRVModal.getCourseImg()).into((Target) courseIV);
+        Picasso.get().load(courseRVModal.getCourseImg()).into(courseIV);
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
