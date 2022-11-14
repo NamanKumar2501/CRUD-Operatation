@@ -108,16 +108,22 @@ public class EditCourseActivity extends AppCompatActivity {
 
         // ---------------- Delete --------------
 
+        databaseReference = firebaseDatabase.getReference("Courses").child(courseID);
+
+
         deleteCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 deleteCourse();
+
             }
         });
 
     }
 
     private void deleteCourse(){
+        databaseReference.removeValue();
         Toast.makeText(this, "Course Deleted..", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(EditCourseActivity.this, MainActivity.class));
     }
