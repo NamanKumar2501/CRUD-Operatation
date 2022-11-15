@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements CourseRVAdapter.C
         });
 
         getAllCourses();
-
     }
 
 

@@ -110,15 +110,14 @@ public class EditCourseActivity extends AppCompatActivity {
 
         databaseReference = firebaseDatabase.getReference("Courses").child(courseID);
 
+            deleteCourseBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        deleteCourseBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    deleteCourse();
 
-                deleteCourse();
-
-            }
-        });
+                }
+            });
 
     }
 
